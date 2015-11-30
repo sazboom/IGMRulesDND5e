@@ -1,0 +1,29 @@
+{
+  "name": "aaronworsham",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "angular-material": "",
+  	"angular-soundmanager2": "",
+    "angular": "",
+    "json3": "",
+    "es5-shim": "",
+    "angular-resource": "",
+    "angular-cookies": "",
+    "angular-sanitize": "",
+    "angular-route": "",
+    "angular-ui": "",
+    "socket.io-client": "",
+    "angular-socket-io": "",
+    "socket.io": ""
+  },
+  "devDependencies": {
+    "angular-mocks": "",
+    "angular-scenario": "",
+    "jasmine-core": "*"
+  }
+}

@@ -1,5 +1,5 @@
 var extend = require('util')._extend;
-var dice = require('IGM/dice/IGMBaseDice.js');
+var dice = require('IGMBaseDice');
 var IGMBaseConditionsMixin = require('IGM/conditions/igmBaseConditions.mixin.js');
 var conditionsMixin = new IGMBaseConditionsMixin()
 var DND5EBaseActor = require('./dnd5eBaseActor.js');

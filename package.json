@@ -1,0 +1,37 @@
+{
+  "name": "IGMRulesDND5e",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "start": "node app.js",
+    "test": "./node_modules/.bin/_mocha"
+  },
+  "dependencies": {
+    "kerberos":"*",
+    "mongodb": "*"
+    },
+  "devDependencies": {
+    "chai": "*",
+    "chai-as-promised": "*",
+    "chai-spies": "*",
+    "grunt": "*",
+    "grunt-develop": "*",
+    "grunt-contrib-stylus": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-mocha-istanbul": "*",
+    "grunt-mocha-phantomjs": "*",
+    "grunt-mocha-test": "*",
+    "request": "*",
+    "time-grunt": "*",
+    "load-grunt-tasks": "*",
+    "grunt-contrib-concat": "*",
+    "istanbul": "^0.3.21",
+    "mocha": "~2.2.5",
+    "mocha-browser": "0.2.0",
+    "sinon": "~1.15.4",
+    "sinon-chai": "~2.8.0",
+    "stylint": "^1.2.2",
+    "stylint-stylish": "^1.2.0"
+
+  }
+}
