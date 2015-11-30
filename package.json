@@ -23,6 +23,6 @@
     "time-grunt": "*",
     "load-grunt-tasks": "*",
     "mocha": "~2.2.5",
-
+    "IGMCore": "https://github.com/aaronworsham/IGMCore.git"
   }
 }

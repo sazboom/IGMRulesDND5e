@@ -1,5 +1,5 @@
-var IGMBaseActor = require('IGM/actors/igmBaseActor.js')
-var dice = require('IGM/dice/igmBaseDice.js');
+var IGMBaseActor = require('IGMCore/actors/igmBaseActor.js')
+var dice = require('IGMCore/dice/igmBaseDice.js');
 
 
 

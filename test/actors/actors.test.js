@@ -1,6 +1,6 @@
 var assert = require('chai').assert;
 
-var ActorFactory = require('Rules/dnd5e/actors/actorFactory.js');
+var ActorFactory = require('../../actors/actorFactory.js');
 var actorFactory = new ActorFactory();
 
 

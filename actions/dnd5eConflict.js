@@ -1,4 +1,4 @@
-var IGMBaseConflict = require('IGM/conflicts/igmBaseConflict.js')
+var IGMBaseConflict = require('IGMCore/conflicts/igmBaseConflict.js')
 
 function DND5EConflict(options){
 	this.attacker = options.attacker;

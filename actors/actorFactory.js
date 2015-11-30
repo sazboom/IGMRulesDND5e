@@ -1,16 +1,16 @@
 var extend = require('util')._extend;
-var dice = require('IGMBaseDice');
-var IGMBaseConditionsMixin = require('IGM/conditions/igmBaseConditions.mixin.js');
+var dice = require('IGMCore/dice/IGMBaseDice.js');
+var IGMBaseConditionsMixin = require('IGMCore/conditions/igmBaseConditions.mixin.js');
 var conditionsMixin = new IGMBaseConditionsMixin()
 var DND5EBaseActor = require('./dnd5eBaseActor.js');
 var DND5EBaseActionMixin = require('../actions/dnd5eBaseAction.mixin.js');
 var actionMixin = new DND5EBaseActionMixin();
 var BaseAttack = require('../attacks/dnd5eBaseAttack.js');
 var BaseDefense = require('../defenses/dnd5eBaseDefense.js');
-var aaronSword = require('Database/ogc/attacks/sword.js')['default'];
-var magicMissile = require('Database/ogc/attacks/magicMissile.js')['default'];
-var fireball = require('Database/ogc/attacks/fireball.js')['default'];
-var aaronArmor = require('Database/ogc/defenses/leather.js')['default'];
+var aaronSword = require('../Database/ogc/attacks/sword.js')['default'];
+var magicMissile = require('../Database/ogc/attacks/magicMissile.js')['default'];
+var fireball = require('../Database/ogc/attacks/fireball.js')['default'];
+var aaronArmor = require('../Database/ogc/defenses/leather.js')['default'];
 extend(aaronSword, dice);
 extend(aaronArmor, dice);
 

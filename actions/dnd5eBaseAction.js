@@ -1,4 +1,4 @@
-var IGMBaseAction = require('IGM/actions/igmBaseAction.js');
+var IGMBaseAction = require('IGMCore/actions/igmBaseAction.js');
 
 function DND5EBaseAction(){
 

@@ -1,14 +1,11 @@
 var assert = require('chai').assert;
 
-var fireball = require('Database/ogc/attacks/fireball.js')['default'];
-var ActorFactory = require('Rules/dnd5e/actors/actorFactory.js');
+var ActorFactory = require('../../actors/actorFactory.js');
 var actorFactory = new ActorFactory();
 
 
 describe('DND5E Attack Action', function(){
-	var dnd5ePC = actorFactory.createCharacter({
-    attackArray : [fireball]
-  });
+	var dnd5ePC = actorFactory.createCharacter({});
 	var dnd5eEnemy1 = actorFactory.createEnemy({}); 
 	var dnd5eEnemy2 = actorFactory.createEnemy({});
 	var attackAction = dnd5ePC.createAction(
@@ -56,7 +53,7 @@ describe('DND5E Attack Action', function(){
   //Compare Hit HA with AV
   //
   describe("Hit Avoidance", function(){
-      it('check if Hit or Miss', function(){
+      it('check if Hit or Miss (x100)', function(){
       	eachSubAttack(attackAction.conflicts, function(conflict){
             var AV = conflict.calculateAttackValue()
             var HA = conflict.calculateHitAvoidance()

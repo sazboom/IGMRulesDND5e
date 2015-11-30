@@ -1,13 +1,13 @@
 var assert = require('chai').assert;
 
-var magicMissile = require('Database/ogc/attacks/magicMissile.js')['default'];
-var ActorFactory = require('Rules/dnd5e/actors/actorFactory.js');
+var fireball = require('../../Database/ogc/attacks/fireball.js')['default'];
+var ActorFactory = require('../../actors/actorFactory.js');
 var actorFactory = new ActorFactory();
 
 
 describe('DND5E Attack Action', function(){
 	var dnd5ePC = actorFactory.createCharacter({
-    attackArray : [magicMissile]
+    attackArray : [fireball]
   });
 	var dnd5eEnemy1 = actorFactory.createEnemy({}); 
 	var dnd5eEnemy2 = actorFactory.createEnemy({});
@@ -65,9 +65,7 @@ describe('DND5E Attack Action', function(){
             }
             else
             {
-              debugger;
-              console.log('AUTOHIT')
-              assert.isTrue(conflict.isHit())
+              assert.isFalse(conflict.isHit())
             }
                 
         })
