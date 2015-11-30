@@ -18,20 +18,11 @@
     "grunt-develop": "*",
     "grunt-contrib-stylus": "*",
     "grunt-contrib-watch": "*",
-    "grunt-mocha-istanbul": "*",
-    "grunt-mocha-phantomjs": "*",
     "grunt-mocha-test": "*",
     "request": "*",
     "time-grunt": "*",
     "load-grunt-tasks": "*",
-    "grunt-contrib-concat": "*",
-    "istanbul": "^0.3.21",
     "mocha": "~2.2.5",
-    "mocha-browser": "0.2.0",
-    "sinon": "~1.15.4",
-    "sinon-chai": "~2.8.0",
-    "stylint": "^1.2.2",
-    "stylint-stylish": "^1.2.0"
 
   }
 }
