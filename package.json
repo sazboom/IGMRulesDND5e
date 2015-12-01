@@ -23,6 +23,6 @@
     "time-grunt": "*",
     "load-grunt-tasks": "*",
     "mocha": "~2.2.5",
-    "igm-mock-core": "https://github.com/aaronworsham/igm-mock-core.git"
+    "igm-mock-core": "https://github.com/sazboom/igm-mock-core.git"
   }
 }
