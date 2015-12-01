@@ -1,4 +1,4 @@
-var IGMBaseAction = require('igm-mock-core/actions/igmBaseAction.js');
+var IGMBaseAction = require('igm-core/actions/igmBaseAction.js');
 
 function DND5EBaseAction(){
 

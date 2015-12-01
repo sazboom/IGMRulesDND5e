@@ -1,25 +1,54 @@
 var assert = require('chai').assert;
+var mockery = require('mockery')
 
-var ActorFactory = require('../../actors/actorFactory.js');
-var actorFactory = new ActorFactory();
+
 
 
 describe('DND5E Character', function(){
-	var gerblin = actorFactory.createEnemy({
-		name: 'Gerblin',
-		desc: 'A Gerblin',
-		meleeAttack : {
-			name: 'sword',
-			damageType: 'slashing',
-			damageDie: 6,
-			damageDieRolls: 1,
-		},
-		attackBonus : 4,
-		damageBonus : 4,
-		hitAvoidance : 10,
-		healthValue : 11
-	});
-	var dnd5eEnemy1 = actorFactory.createEnemy({}); 
+	before(function(){
+		mockery.enable({
+		     warnOnReplace: true,
+		     warnOnUnregistered: false,
+		     useCleanCache: true
+		   });
+
+		var coreFiles = [
+			'igm-core/conditions/igmBaseConditions.mixin.js', 
+			'igm-core/actors/igmBaseActor.js', 
+			'igm-core/dice/igmBaseDice.js',
+			'igm-core/actions/igmBaseAction.js',
+			'igm-core/conflicts/igmBaseConflict.js'
+
+		]
+		for(var i in coreFiles){
+			mockery.registerSubstitute(
+				coreFiles[i],
+				coreFiles[i].replace('core','mock-core')
+			);
+			
+		}
+
+		var ActorFactory = require('../../actors/actorFactory.js');
+		actorFactory = new ActorFactory();
+	})
+	beforeEach(function(){
+		gerblin = actorFactory.createEnemy({
+			name: 'Gerblin',
+			desc: 'A Gerblin',
+			meleeAttack : {
+				name: 'sword',
+				damageType: 'slashing',
+				damageDie: 6,
+				damageDieRolls: 1,
+			},
+			attackBonus : 4,
+			damageBonus : 4,
+			hitAvoidance : 10,
+			healthValue : 11
+		});
+		dnd5eEnemy1 = actorFactory.createEnemy({}); 
+		
+	})
 	it('should have a name', function(){
 		assert.equal(gerblin.name, 'Gerblin')
 	})

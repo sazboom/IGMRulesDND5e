@@ -1,5 +1,5 @@
-var IGMBaseActor = require('igm-mock-core/actors/igmBaseActor.js')
-var dice = require('igm-mock-core/dice/igmBaseDice.js');
+var IGMBaseActor = require('igm-core/actors/igmBaseActor.js')
+var dice = require('igm-core/dice/igmBaseDice.js');
 
 
 

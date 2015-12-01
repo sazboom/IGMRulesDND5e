@@ -1,4 +1,4 @@
-var IGMBaseConditions = require($IGM_CORE+'/conditions/igmBaseConditions.js')
+var IGMBaseConditions = require('igm-core/conditions/igmBaseConditions.js')
 
 function DND5EBaseConditions(){
 	

@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "kerberos":"*",
-    "mongodb": "*"
+    "mongodb": "*",
+    "igm-mock-core": "https://github.com/sazboom/igm-mock-core.git"
     },
   "devDependencies": {
     "chai": "*",
@@ -23,6 +24,6 @@
     "time-grunt": "*",
     "load-grunt-tasks": "*",
     "mocha": "~2.2.5",
-    "igm-mock-core": "https://github.com/sazboom/igm-mock-core.git"
+    "mockery":"*"
   }
 }

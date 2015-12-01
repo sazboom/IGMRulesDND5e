@@ -1,25 +1,54 @@
 var assert = require('chai').assert;
-
-var fireball = require('../../Database/ogc/attacks/fireball.js')['default'];
-var ActorFactory = require('../../actors/actorFactory.js');
-var actorFactory = new ActorFactory();
+var mockery = require('mockery')
 
 
-describe('DND5E Attack Action', function(){
-	var dnd5ePC = actorFactory.createCharacter({
-    attackArray : [fireball]
-  });
-	var dnd5eEnemy1 = actorFactory.createEnemy({}); 
-	var dnd5eEnemy2 = actorFactory.createEnemy({});
-	var attackAction = dnd5ePC.createAction(
-    'Attack', 
-    {}, 
-    [dnd5eEnemy1, dnd5eEnemy2], 
-    {
-      attack:dnd5ePC.attacks[0]
+describe('Fireball', function(){
+  before(function(){
+    mockery.enable({
+         warnOnReplace: false,
+         warnOnUnregistered: false,
+         useCleanCache: true
+       });
+
+    var coreFiles = [
+      'igm-core/conditions/igmBaseConditions.mixin.js', 
+      'igm-core/actors/igmBaseActor.js', 
+      'igm-core/dice/igmBaseDice.js',
+      'igm-core/actions/igmBaseAction.js',
+      'igm-core/conflicts/igmBaseConflict.js'
+
+    ]
+    for(var i in coreFiles){
+      mockery.registerSubstitute(
+        coreFiles[i],
+        coreFiles[i].replace('core','mock-core')
+      );
+      
     }
+    fireball = require('../../Database/ogc/attacks/fireball.js')['default'];
+    var ActorFactory = require('../../actors/actorFactory.js');
+    actorFactory = new ActorFactory();
 
-  )
+  })
+
+  beforeEach(function(){
+  	dnd5ePC = actorFactory.createCharacter({
+      attackArray : [fireball]
+    });
+  	dnd5eEnemy1 = actorFactory.createEnemy({}); 
+  	dnd5eEnemy2 = actorFactory.createEnemy({});
+  	attackAction = dnd5ePC.createAction(
+      'Attack', 
+      {}, 
+      [dnd5eEnemy1, dnd5eEnemy2], 
+      {
+        attack:dnd5ePC.attacks[0]
+      }
+
+    )
+    
+  })
+
 
 	function eachSubAttack(conflicts, callback){
 
