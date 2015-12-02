@@ -9,7 +9,7 @@
   "dependencies": {
     "kerberos":"*",
     "mongodb": "*",
-    "igm-mock-core": "https://github.com/sazboom/igm-mock-core.git"
+    "igm-core": "https://github.com/sazboom/igm-mock-core.git"
     },
   "devDependencies": {
     "chai": "*",

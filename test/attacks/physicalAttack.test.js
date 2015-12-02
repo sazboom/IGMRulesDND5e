@@ -4,27 +4,6 @@ var mockery = require('mockery')
 
 describe('Physical Attack', function(){
 	 before(function(){
-    mockery.enable({
-         warnOnReplace: false,
-         warnOnUnregistered: false,
-         useCleanCache: true
-       });
-
-    var coreFiles = [
-      'igm-core/conditions/igmBaseConditions.mixin.js', 
-      'igm-core/actors/igmBaseActor.js', 
-      'igm-core/dice/igmBaseDice.js',
-      'igm-core/actions/igmBaseAction.js',
-      'igm-core/conflicts/igmBaseConflict.js'
-
-    ]
-    for(var i in coreFiles){
-      mockery.registerSubstitute(
-        coreFiles[i],
-        coreFiles[i].replace('core','mock-core')
-      );
-      
-    }
     var ActorFactory = require('../../actors/actorFactory.js');
     actorFactory = new ActorFactory();
 
