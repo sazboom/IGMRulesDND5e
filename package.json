@@ -1,5 +1,5 @@
 {
-  "name": "igm-rules-dnd5e",
+  "name": "igm-rules",
   "version": "0.0.1",
   "private": false,
   "scripts": {
@@ -9,7 +9,7 @@
   "dependencies": {
     "kerberos":"*",
     "mongodb": "*",
-    "igm-core": "https://github.com/sazboom/igm-mock-core.git"
+    "igm-core": "https://github.com/sazboom/igm-core.git"
     },
   "devDependencies": {
     "chai": "*",

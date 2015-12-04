@@ -1,4 +1,4 @@
-var assert = require('chai').assert;
+c
 var extend = require('extend');
 var mockery = require('mockery')
 
