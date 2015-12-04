@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "kerberos":"*",
-    "mongodb": "*",
-    "igm-core": "https://github.com/sazboom/igm-core.git"
+    "mongodb": "*"
     },
   "devDependencies": {
+    "igm-core": "https://github.com/sazboom/igm-core.git",
     "chai": "*",
     "chai-as-promised": "*",
     "chai-spies": "*",
