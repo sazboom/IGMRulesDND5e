@@ -1,4 +1,4 @@
-var dice = require('igm-core/igmBaseDice.js');
+var dice = require('igm-utils/igmBaseDice.js');
 
 function DND5EOnHitEffects(){
 	this.physicalDamage = function(attacker, attack, defender, defense, options){
