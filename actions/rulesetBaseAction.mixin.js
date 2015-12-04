@@ -1,5 +1,5 @@
-var DND5EAttackAction = require('../actions/dnd5eAttackAction.js');
-var DND5ECastAction = require('../actions/dnd5eCastAction.js');
+var DND5EAttackAction = require('../actions/rulesetAttackAction.js');
+var DND5ECastAction = require('../actions/rulesetCastAction.js');
 
 function DND5EBaseActionMixin(){
 

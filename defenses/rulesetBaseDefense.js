@@ -1,7 +1,7 @@
 var extend = require('util')._extend;
-var DND5eOnHitEffects = require('../effects/defense/dnd5eOnHitDefenseEffects.js');
+var DND5eOnHitEffects = require('../effects/defense/rulesetOnHitDefenseEffects.js');
 var dnd5eOnHitEffects = new DND5eOnHitEffects()
-var DND5eOnMissEffects = require('../effects/defense/dnd5eOnMissDefenseEffects.js');
+var DND5eOnMissEffects = require('../effects/defense/rulesetOnMissDefenseEffects.js');
 var dnd5eOnMissEffects = new DND5eOnMissEffects()
 
 function DND5EBaseDefense(owner, template){

@@ -1,5 +1,5 @@
-var DND5EBaseAction = require('./dnd5eBaseAction.js');
-var DND5EConflict = require('./dnd5eConflict.js');
+var DND5EBaseAction = require('./rulesetBaseAction.js');
+var DND5EConflict = require('./rulesetConflict.js');
 
 
 function DND5ECastAction(attacker, targets, options){

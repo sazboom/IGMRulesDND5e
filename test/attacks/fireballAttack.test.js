@@ -1,5 +1,4 @@
 var assert = require('chai').assert;
-var mockery = require('mockery')
 
 
 describe('Fireball', function(){

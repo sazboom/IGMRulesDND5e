@@ -1,6 +1,6 @@
-c
+var assert = require('chai').assert;
 var extend = require('extend');
-var mockery = require('mockery')
+
 
 
 describe('DND5E Conditions', function(){
