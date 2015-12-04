@@ -1,7 +1,5 @@
 var extend = require('util')._extend;
-var dice = require('igm-core/igmBaseDice.js');
-var IGMBaseConditionsMixin = require('igm-core/igmBaseConditions.mixin.js');
-var conditionsMixin = new IGMBaseConditionsMixin()
+var dice = require('igm-utils/igmBaseDice.js');
 var DND5EBaseActor = require('./rulesetBaseActor.js');
 var DND5EBaseActionMixin = require('../actions/rulesetBaseAction.mixin.js');
 var actionMixin = new DND5EBaseActionMixin();
@@ -46,7 +44,6 @@ function ActorFactory(){
 			});
 		extend(character, baseOptions);
 		extend(character, actionMixin);
-		extend(character, conditionsMixin);
 		for(var i in attackArray){
 			character.attacks.push(new BaseAttack(character, attackArray[i]));	
 		}
@@ -64,7 +61,6 @@ function ActorFactory(){
 			});
 		extend(enemy, baseOptions);
 		extend(enemy, actionMixin);
-		extend(enemy, conditionsMixin);
 		for(var i in attackArray){
 			enemy.attacks.push(new BaseAttack(enemy, attackArray[i]));	
 		}

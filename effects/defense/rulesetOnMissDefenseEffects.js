@@ -1,4 +1,4 @@
-var dice = require('igm-core/igmBaseDice.js');
+var dice = require('igm-utils/igmBaseDice.js')
 
 
 function DND5EOnMissDefenseEffects(){

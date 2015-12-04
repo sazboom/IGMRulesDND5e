@@ -1,7 +1,4 @@
-var IGMBaseActor = require('igm-core/igmBaseActor.js')
-var dice = require('igm-core/igmBaseDice.js');
-
-
+var dice = require('igm-utils/igmBaseDice.js')
 
 function DND5EBaseActor(options){
 	this.attackBonus = options.attackBonus || 0;
@@ -55,7 +52,6 @@ function DND5EBaseActor(options){
 
 }
 
-DND5EBaseActor.prototype = new IGMBaseActor();
 
 
 

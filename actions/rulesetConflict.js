@@ -1,4 +1,4 @@
-var IGMBaseConflict = require('igm-core/igmBaseConflict.js')
+
 
 function DND5EConflict(options){
 	this.attacker = options.attacker;
@@ -53,7 +53,6 @@ function DND5EConflict(options){
 	}
 }
 
-DND5EConflict.prototype = new IGMBaseConflict()
 
 module.exports = DND5EConflict
 
