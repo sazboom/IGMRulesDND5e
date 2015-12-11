@@ -1,5 +1,5 @@
 var dice = require('igm-utils/igmBaseDice')
-var damage = {
+var Damage = {
 	physical : function(profile){
 		var dmg = dice.roll(profile.dieRolls, profile.dieSides)
 		dmg += profile.owner.abilityModifier('str')
@@ -12,4 +12,4 @@ var damage = {
 
 }
 
-module.exports = damage
+module.exports = Damage

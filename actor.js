@@ -1,5 +1,5 @@
 var dice = require('igm-utils/igmBaseDice')
-var damage = require('./damage')
+var damage = require('./damage.js')
 // var condition = require('./condition')
 // var position = require('./position')
 // var ongoing = require('./ongoing')
@@ -34,14 +34,6 @@ function Actor(profile){
 		return this.attacks[0]
 	}
 
-	this.onHit = function(effect){
-		for(var i in this.onHitStack){
-			var profile = this.onHitStack[i]
-			profile.owner = this
-				effect.damage.add(this[profile.effect](profile))
-		}
-		return effect
-	}
 
 }
 

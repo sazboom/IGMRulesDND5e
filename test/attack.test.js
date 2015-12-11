@@ -2,8 +2,11 @@ var assert = require('chai').assert;
 var Actor = require('../actor.js')
 var Attack = require('../attack.js')
 var Defense = require('../defense.js')
+var effect = {
 
-describe('An Actor', function(){
+}
+
+describe('An Attack', function(){
 	before(function(){
 		attack = new Attack(
 			{
@@ -22,11 +25,10 @@ describe('An Actor', function(){
 				}]
 			}
 		)
-		defense = new Defense({})
 		actor = new Actor(
 			{
 				attacks : [attack], 
-				defenses : [defense],
+				defenses : [],
 				toHitStack : [	
 					{}
 				],
@@ -45,16 +47,14 @@ describe('An Actor', function(){
 			}
 		)
 		attack.owner = actor
-		defense.owner = actor
 	})
-	it('should have an array of attacks', function(){
-		assert.equal(actor.attacks.length, 1)
+
+	it('should have an toHit value', function(){
+		var toHit = attack.toHit()
+		assert.isAbove(toHit, 0)
 	})
-	it('should roll initiative', function(){
-		assert.isAbove(actor.rollInitiative(), 0)
-	})
-	it('should choose an attack', function(){
-		var attack = actor.chooseAttack()
-		assert.isObject(attack)
+	it('should have a onHit value', function(){
+		var onHit = attack.onHit({})
+		assert.isObject(onHit)
 	})
 })
