@@ -5,7 +5,6 @@ function DND5EOnHitEffects(){
 		defense.physicalDamage(dice.roll(this.dieRolls,this.damageDie) + attacker.damageBonus, options)
 	}
 	this.elementalDamage = function(attacker, attack, defender, defense, options){
-		debugger;
 		defense.elementalDamage(dice.roll(this.dieRolls,this.damageDie) + attacker.damageBonus, options)
 	}
 }

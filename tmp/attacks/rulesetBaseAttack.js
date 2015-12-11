@@ -4,9 +4,9 @@ var dnd5eOnHitEffects = new DND5eOnHitEffects()
 var DND5eOnMissEffects = require('../effects/attack/rulesetOnMissEffects.js');
 var dnd5eOnMissEffects = new DND5eOnMissEffects()
 
-function DND5EBaseAttack(owner, template){
+function DND5EBaseAttack(attacker, attackProfile){
 	var baseAttack = {
-		owner: owner,
+		attacker: attacker,
 		name: null,
 		desc: null,
 		attackAgainst: null,	
@@ -40,11 +40,14 @@ function DND5EBaseAttack(owner, template){
 				}
 			}
 			return false
+		},
+		attackValue: function(){
+			return dice.roll(1,20)+this.attackBonus
 		}
 	}
 	extend(baseAttack, dnd5eOnHitEffects);
 	extend(baseAttack, dnd5eOnMissEffects);
-	extend(baseAttack, template);
+	extend(baseAttack, attackProfile);
 
 	return baseAttack;
 }

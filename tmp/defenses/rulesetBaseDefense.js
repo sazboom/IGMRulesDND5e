@@ -4,9 +4,9 @@ var dnd5eOnHitEffects = new DND5eOnHitEffects()
 var DND5eOnMissEffects = require('../effects/defense/rulesetOnMissDefenseEffects.js');
 var dnd5eOnMissEffects = new DND5eOnMissEffects()
 
-function DND5EBaseDefense(owner, template){
-	var baseAttack = {
-		owner: owner,
+function DND5EBaseDefense(defender, template){
+	var baseDefense = {
+		defender: defender,
 		name: null,
 		desc: null,
 		defenseBonus: 0,
@@ -22,6 +22,10 @@ function DND5EBaseDefense(owner, template){
 				this[this.onMissEffects[i]](attacker, this, defender, defense)
 			}
 		},
+
+		hitAvoidance: function(){
+			
+		}
 	}
 	extend(baseAttack, dnd5eOnHitEffects);
 	extend(baseAttack, dnd5eOnMissEffects);
