@@ -1,13 +1,9 @@
+var extend = require('util')._extend;
 var dice = require('igm-utils/igmBaseDice')
 var Damage = {
-	physical : function(profile){
-		var dmg = dice.roll(profile.dieRolls, profile.dieSides)
-		dmg += profile.owner.abilityModifier('str')
-		dmg += profile.owner.proficiencyBonus
-		return {
-			type: profile.type,
-			value : dmg
-		}
+	physical : function(resultObj){
+		resultObj.damageValue = dice.roll(resultObj.dieRolls, resultObj.dieSides)
+		return resultObj
 	} 
 
 }

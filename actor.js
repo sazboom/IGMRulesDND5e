@@ -1,26 +1,21 @@
+var extend = require('util')._extend;
 var dice = require('igm-utils/igmBaseDice')
 var damage = require('./damage.js')
+var Attack = require('./attack.js')
 // var condition = require('./condition')
 // var position = require('./position')
 // var ongoing = require('./ongoing')
 
 
-function Actor(profile){
-	this.attacks = profile.attacks || []
-	this.defenses = profile.defenses || []
-	this.toHitStack = profile.toHitStack || []
-	this.toAvoidStack = profile.toAvoidStack || []
-	this.onHitStack = profile.onHitStack || []
-	this.proficiencyBonus = profile.proficiencyBonus || 0
-	this.attributes = profile.abilityArray ||
-		{
-			'str':10,
-			'dex':10,
-			'con':10,
-			'wis':10,
-			'int':10,
-			'cha':10
-		}
+function Actor(profilePath){
+	var profile = require(profilePath)
+	extend(this, profile)
+	this.attacks = []
+	this.attackObjs = {}
+	for(var i in this.attackPaths){
+		this.attackObjs['attack'+i] = new Attack(this.attackPaths[i])
+		this.attacks.push(this.attackObjs['attack'+i])
+	}
 
 	this.abilityModifier = function(attribute){
 		return Math.floor((this.attributes[attribute] - 10)/2)

@@ -9,7 +9,9 @@
   "dependencies": {
     "kerberos":"*",
     "mongodb": "*",
-    "igm-utils": "https://github.com/sazboom/igm-utils.git"
+    "igm-utils": "https://github.com/sazboom/igm-utils.git",
+    "igm-data": "https://github.com/sazboom/igm-data.git"
+
   },
   "devDependencies": {
     "chai": "*",

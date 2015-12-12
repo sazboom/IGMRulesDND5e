@@ -1,71 +1,83 @@
+var extend = require('util')._extend;
 var dice = require('igm-utils/igmBaseDice')
+var damage = require('./damage')
 // var condition = require('./condition')
 // var position = require('./position')
 // var ongoing = require('./ongoing')
 
-function Attack(profile){
+function Attack(profilePath){
+	var profile = require(profilePath)
+	extend(this, profile)
+
 
 	this.owner = null 
 	this.stack = profile.stack || []
-	this.shortName = profile.shortName || "sword"
-	this.longName = profile.longName || "a sword"
-	this.attackType = profile.attackType || 'standard'
-	this.onHitStack = profile.onHitStack || [{
-		mechanic : 'damage',
-		effect : 'physical',
-		type : 'slashing',
-		dieRolls : 1,
-		dieSides : 6
-	}]
-	this.toHitStack = profile.toHitStack || [{
-		modifier : 0
-	}]
-	this.damage = require('./damage')
+	this.damage = damage
+
 
 	this.isHit = function(defense){
 		return this.toHit() > defense.toAvoid()
 	}
 
-	this.toHit = function(){
-		var attackValue = dice.roll(1,20)
+	this.toHit = function(resultObj){
 		var stacks = [
 			this.toHitStack,
 			this.owner.toHitStack
 		]
+
+		resultObj.hits = {}
+		resultObj.hitArray = []
+		resultObj.hitBonus = 0
+		
+		resultObj.attackRoll = dice.roll(1,20)
+		
 		for( var n in stacks){
 			var stack = stacks[n]
 			for(var i in stack){
 				var profile = stack[i]
-				if(profile.modifier){
-					attackValue += profile.modifier	
+				if(profile.datatype === 'static'){
+					resultObj.hits['hitObj'+i] = {}
+					extend(resultObj.hits['hitObj'+i], profile)
+					resultObj.hitArray.push(profile)
+					resultObj.hitBonus += profile.bonus
 				}
 			}
 		}
 
-		return attackValue
+		return resultObj
 	}
 
 
-	this.onHit = function(effect){
+	this.onHit = function(resultObj){
 		var stacks = [
 			this.onHitStack, 
 			this.owner.onHitStack
 		]
-		debugger;
+		resultObj.damage = {}
+		resultObj.damageArray = []
+		resultObj.damageTotal = 0
+		// resultObj.conditions = []
+		// resultObj.positions = []
+		// resultObj.ongoing = []
 
 		for( var n in stacks){
 			var stack = stacks[n]
 			for(var i in stack){
 				var profile = stack[i]
-				profile.owner = this.owner
-				debugger;
-				if(profile.mechanic && profile.effect){
-					effect = this[profile.mechanic][profile.effect](profile)
+				if(profile.datatype === 'static'){
+					resultObj.damage['damageObjs'+n+i] = profile
+					resultObj.damageTotal += profile.bonus 
 				}
+				else if(profile.mechanic){
+					resultObj.damage['damageObjs'+n+i] = this[profile.mechanic][profile.effect](profile)
+					
+					resultObj.damageTotal += resultObj.damage['damageObjs'+n+i].damageValue
+				}
+				resultObj.damageArray.push(resultObj.damage['damageObjs'+n+i])
 			}
 		}
 
-		return effect
+		return resultObj
 	}
 
 	this.onMiss = function(){
