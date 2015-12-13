@@ -11,12 +11,13 @@ function Attack(profilePath){
 
 
 	this.owner = null 
-	this.stack = profile.stack || []
 	this.damage = damage
 
 
 	this.isHit = function(defense){
-		return this.toHit() > defense.toAvoid()
+		var hit = this.toHit({})
+		var avoid = defense.toAvoidHit({})
+		return  hit.hitTotal > avoid.avoidTotal
 	}
 
 	this.toHit = function(resultObj){
@@ -28,8 +29,9 @@ function Attack(profilePath){
 		resultObj.hits = {}
 		resultObj.hitArray = []
 		resultObj.hitBonus = 0
+		resultObj.hitTotal = 0
 		
-		resultObj.attackRoll = dice.roll(1,20)
+		resultObj.attackRoll = resultObj.hitTotal = dice.roll(1,20)
 		
 		for( var n in stacks){
 			var stack = stacks[n]
@@ -40,6 +42,7 @@ function Attack(profilePath){
 					extend(resultObj.hits['hitObj'+i], profile)
 					resultObj.hitArray.push(profile)
 					resultObj.hitBonus += profile.bonus
+					resultObj.hitTotal += resultObj.hitBonus
 				}
 			}
 		}
