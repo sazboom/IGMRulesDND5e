@@ -35,8 +35,12 @@ function Actor(profilePath){
 		return dice.roll(1,20)
 	}
 
-	this.chooseAttack = function(){
+	this.chooseAIAttack = function(){
 		return this.attacks[0]
+	}
+
+	this.chooseAIDefense = function(){
+		return this.defenses[0]
 	}
 
 
