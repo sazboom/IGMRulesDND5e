@@ -18,6 +18,29 @@ module.exports = function (grunt) {
         file: 'app.js'
       }
     },
+    watch: {
+      options: {
+        nospawn: true,
+        livereload: reloadPort,
+
+      },
+      js: {
+        files: [
+          './*.js'
+        ],
+        tasks: ['copy']
+      }
+    },
+    copy: {
+      main: {
+        files:[
+          {
+            src:'./*.js',
+            dest: '../igm-server/node_modules/igm-rules/'            
+          }
+        ]
+      }
+    },
     
 
   });

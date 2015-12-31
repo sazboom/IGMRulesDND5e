@@ -39,6 +39,10 @@ function Actor(profilePath){
 		return this.attacks[0]
 	}
 
+	this.chooseAttack = function(attack){
+		return this.attacks[attack]
+	}
+
 	this.chooseAIDefense = function(){
 		return this.defenses[0]
 	}

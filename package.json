@@ -21,7 +21,7 @@
     "grunt-develop": "*",
     "grunt-contrib-stylus": "*",
     "grunt-contrib-watch": "*",
-    "grunt-mocha-test": "*",
+    "grunt-contrib-copy": "*",
     "request": "*",
     "time-grunt": "*",
     "load-grunt-tasks": "*",
