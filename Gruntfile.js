@@ -32,11 +32,19 @@ module.exports = function (grunt) {
       }
     },
     copy: {
-      main: {
+      server: {
         files:[
           {
             src:'./*.js',
             dest: '../igm-server/node_modules/igm-rules/'            
+          }
+        ]
+      },
+      core: {
+        files:[
+          {
+            src:'./*.js',
+            dest: '../igm-core/node_modules/igm-rules/'            
           }
         ]
       }
